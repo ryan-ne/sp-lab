@@ -39,6 +39,7 @@ Update the counts as you go. Every ticked box is a commit — the history is the
 ├── 06-capstone-internet/     ← flagship artifact
 ├── tools/                    ← IRR/RPKI filter automation
 └── docs/
+    ├── resources.md           ← courses, tooling, RFCs
     ├── community-scheme.md
     ├── addressing-plan.md
     ├── peering-policy.md
@@ -51,76 +52,9 @@ Add a `.gitignore` for `*.qcow2`, `*.tar`, `clab-*/` — never commit vendor ima
 
 ## Resource library
 
-<details open>
-<summary><b>Free structured courses</b></summary>
+**→ [docs/resources.md](docs/resources.md)**
 
-| Resource | Link |
-|---|---|
-| **APNIC Academy** (free, self-paced, certificates) | https://academy.apnic.net/en/online-courses |
-| APNIC — Routing Fundamentals (OSPF, IS-IS, BGP with configs) | https://academy.apnic.net/en/course/routing-fundamentals-course |
-| APNIC — Introduction to BGP | https://academy.apnic.net/en/course/introduction-to-bgp |
-| APNIC — IPv6 Fundamentals | https://academy.apnic.net/en/course/ipv6-fundamentals/ |
-| **RIPE NCC Academy** (free, with certification exams) | https://academy.ripe.net/ |
-| RIPE — BGP Security (maps directly onto Block 6) | https://academy.ripe.net/enrol/index.php?id=15 |
-
-</details>
-
-<details open>
-<summary><b>Labs and tooling</b></summary>
-
-| Resource | Link |
-|---|---|
-| containerlab | https://containerlab.dev/ · install: https://containerlab.dev/install |
-| containerlab repo & supported NOS list | https://github.com/srl-labs/containerlab |
-| Nokia SR Linux learning | https://learn.srlinux.dev/ |
-| bgpq4 (IRR filter generation) | https://github.com/bgp/bgpq4 |
-| Routinator (RPKI validator) | https://github.com/NLnetLabs/routinator |
-| rpki-client | https://www.rpki-client.org/ |
-| NetBox | https://netbox.dev/ |
-| Batfish | https://www.batfish.org/ |
-| Nornir · NAPALM | https://nornir.readthedocs.io/ · https://napalm.readthedocs.io/ |
-
-</details>
-
-<details open>
-<summary><b>Vendor docs and free books</b></summary>
-
-| Resource | Link |
-|---|---|
-| Juniper Day One library (free PDFs) | https://www.juniper.net/us/en/training/jnbooks/day-one/ |
-| Day One: Routing the Internet Protocol | https://www.juniper.net/documentation/en_US/day-one-books/DO_Routing_the_IP.pdf |
-| Day One: Migrating to Segment Routing | https://www.juniper.net/documentation/en_US/day-one-books/DO_MigrateSR.pdf |
-| Juniper TechLibrary | https://www.juniper.net/documentation/ |
-| Segment Routing portal | https://www.segment-routing.net/ |
-| Juniper Learning Portal (JNCIA/JNCIS free training) | https://learningportal.juniper.net/ |
-
-</details>
-
-<details open>
-<summary><b>Operational intelligence</b></summary>
-
-| Resource | Link |
-|---|---|
-| NANOG (talk archives + mailing list) | https://www.nanog.org/ |
-| RIPE Labs | https://labs.ripe.net/ |
-| APNIC Blog | https://blog.apnic.net/ |
-| Geoff Huston's ISP Column | https://www.potaroo.net/ |
-| PeeringDB · bgp.tools | https://www.peeringdb.com/ · https://bgp.tools/ |
-| RIPEstat · RIPE Atlas | https://stat.ripe.net/ · https://atlas.ripe.net/ |
-| NLNOG RING · MANRS | https://ring.nlnog.net/ · https://www.manrs.org/ |
-
-</details>
-
-<details open>
-<summary><b>Core RFCs</b></summary>
-
-Read at `https://datatracker.ietf.org/doc/html/rfcNNNN`
-
-`4271` BGP-4 · `7454` BGP Operations & Security · `8212` default EBGP behaviour · `1997` communities · `4360` extended communities · `8092` large communities · `7911` add-path · `5305` IS-IS wide metrics · `5286` LFA · `5880` BFD · `8402` SR architecture · `8986` SRv6 · `4364` L3VPN · `7432` EVPN · `7947` IXP route servers · `7999` BLACKHOLE community · `8955` Flowspec · `6480` RPKI architecture · `6811` RPKI origin validation · `9234` BGP roles/OTC
-
-Plus **RIPE-580** on route flap damping.
-
-</details>
+Courses, lab tooling, vendor docs, operational intelligence, and the core RFC list with the day each one gets read.
 
 ---
 
