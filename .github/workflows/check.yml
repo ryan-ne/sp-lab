@@ -1,0 +1,95 @@
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Progress counter matches ticked checkboxes
+        shell: pwsh
+        run: |
+          $readme = Get-Content README.md -Raw
+          $ticked   = ([regex]::Matches($readme, '(?m)^\s*-\s\[x\]\s')).Count
+          $unticked = ([regex]::Matches($readme, '(?m)^\s*-\s\[\s\]\s')).Count
+          $total    = $ticked + $unticked
+
+          $m = [regex]::Match($readme,
+            '\*\*Bridge phase:\*\*\s*(?<b>\d+)\s*/\s*\d+.*?\*\*Core plan:\*\*\s*(?<c>\d+)\s*/\s*\d+.*?\*\*Total:\*\*\s*(?<t>\d+)\s*/\s*(?<tt>\d+)')
+          if (-not $m.Success) {
+            throw "Could not parse the progress line in README.md."
+          }
+
+          # Bridge days are B*, core days are D*.
+          $bTicked = ([regex]::Matches($readme, '(?m)^\s*-\s\[x\]\s\*\*B\d+\*\*')).Count
+          $cTicked = ([regex]::Matches($readme, '(?m)^\s*-\s\[x\]\s\*\*D\d+\*\*')).Count
+
+          $errors = @()
+          if ([int]$m.Groups['t'].Value  -ne $ticked)  { $errors += "Total says $($m.Groups['t'].Value), checkboxes say $ticked" }
+          if ([int]$m.Groups['b'].Value  -ne $bTicked) { $errors += "Bridge says $($m.Groups['b'].Value), B-checkboxes say $bTicked" }
+          if ([int]$m.Groups['c'].Value  -ne $cTicked) { $errors += "Core says $($m.Groups['c'].Value), D-checkboxes say $cTicked" }
+          if ([int]$m.Groups['tt'].Value -ne $total)   { $errors += "Plan length says $($m.Groups['tt'].Value), found $total checkboxes" }
+
+          if ($errors) {
+            $errors | ForEach-Object { Write-Host "::error::$_" }
+            exit 1
+          }
+          Write-Host "OK — $ticked / $total ticked (bridge $bTicked, core $cTicked)"
+
+      - name: No vendor images committed
+        shell: pwsh
+        run: |
+          # Blobs in the tree, not the working copy — .gitignore does not
+          # protect a file that was force-added.
+          $bad = git ls-files |
+            Where-Object { $_ -match '\.(qcow2|qcow|vmdk|tar|tar\.gz|tgz|iso)$' -or $_ -match '(^|/)clab-' }
+
+          if ($bad) {
+            $bad | ForEach-Object { Write-Host "::error file=$_::Vendor image or lab artifact committed" }
+            exit 1
+          }
+
+          # Anything over 20 MB is suspicious in a docs-and-configs repo.
+          $big = git ls-files | ForEach-Object {
+            $f = Get-Item $_ -ErrorAction SilentlyContinue
+            if ($f -and $f.Length -gt 20MB) { "{0} ({1:N0} MB)" -f $_, ($f.Length / 1MB) }
+          }
+          if ($big) {
+            $big | ForEach-Object { Write-Host "::error::Large file committed: $_" }
+            exit 1
+          }
+          Write-Host "OK — no vendor images, nothing over 20 MB"
+
+      - name: Journal entry exists for the last ticked day
+        shell: pwsh
+        run: |
+          $readme = Get-Content README.md -Raw
+          $ticks = [regex]::Matches($readme, '(?m)^\s*-\s\[x\]\s\*\*(?<id>[BD]\d+)\*\*')
+          if ($ticks.Count -eq 0) {
+            Write-Host "No days ticked yet — nothing to check."
+            exit 0
+          }
+
+          $last = $ticks[$ticks.Count - 1].Groups['id'].Value
+          $journals = Get-ChildItem '00-journal' -Filter '*.md' -ErrorAction SilentlyContinue
+          if (-not $journals) {
+            Write-Host "::error::00-journal/ has no entries, but $last is ticked"
+            exit 1
+          }
+
+          $all = ($journals | Get-Content -Raw) -join "`n"
+          if ($all -notmatch "(?m)^##\s+$last\b") {
+            Write-Host "::error::$last is ticked but 00-journal/ has no '## $last' entry"
+            Write-Host "::notice::Every ticked day needs a journal entry — that is the proof, not the checkbox."
+            exit 1
+          }
+          Write-Host "OK — journal entry found for $last"
