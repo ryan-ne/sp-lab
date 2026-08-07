@@ -20,10 +20,13 @@ Update the counts as you go. Every ticked box is a commit — the history is the
 ## How to use this repo
 
 1. Tick a day's checkbox only when the **hands-on part is done**, not when the reading is done.
-2. Commit after every session, even if the only change is a journal entry.
-3. Days marked **REVIEW** are deliberately light — use them to catch up if you've slipped.
-4. Days are *study days*, not calendar days. Miss one, shift everything right; don't skip it.
-5. The rule that matters most: **every block ends in something you built, not something you read.**
+2. **Do not tick a day you cannot explain without notes.** Close the tabs, say it out loud. If you can't, the day isn't finished — and [`docs/checkpoints.md`](docs/checkpoints.md) will find you out weeks later anyway.
+3. Commit after every session, even if the only change is a journal entry.
+4. Days marked **REVIEW** are deliberately light — use them to catch up if you've slipped.
+5. Days are *study days*, not calendar days. Miss one, shift everything right; don't skip it.
+6. The rule that matters most: **every block ends in something you built, not something you read.**
+
+Start every session with [`tools/today.ps1`](tools/today.ps1) — position, remaining slack, and the checkpoint cards due. Schedule and the deadline maths live in [`docs/schedule.md`](docs/schedule.md); what "done" means for each artifact is in [`docs/artifacts.md`](docs/artifacts.md).
 
 ### Suggested repo layout
 
@@ -300,6 +303,8 @@ Courses, lab tooling, vendor docs, operational intelligence, and the core RFC li
 
 Answer out loud, from memory, on review days. If you can't, the block isn't finished.
 
+These ten are seeded into [`docs/checkpoints.md`](docs/checkpoints.md) along with 50 more, on a spaced-repetition log — so the bridge phase gets re-asked at D42 rather than quietly decaying.
+
 1. Why IS-IS over OSPF in a backbone? What does the overload bit do?
 2. BGP path selection, in order, with tie-breakers.
 3. Why is inbound traffic engineering fundamentally weaker than outbound?
@@ -318,6 +323,7 @@ Answer out loud, from memory, on review days. If you can't, the block isn't fini
 - **One talk per week** — NANOG or RIPE for operational reality, Cisco Live `BRKSPG`/`BRKMPL` on-demand for protocol depth. Rotate between them
 - **Lurk** on the NANOG list, RIPE Routing WG, and your local NOG. Then answer something
 - **15 minutes daily on the Junos CLI** — MX/PTX dominate SP, and Junos teaches policy thinking
+- **From D50: one interview question per week, out loud.** Pull it from [`docs/checkpoints.md`](docs/checkpoints.md), answer it standing up with no notes, log the gap. Two days at D99 cannot undo five months of never saying any of this aloud — and the failure mode in an SP interview is never *not knowing*, it's knowing and not being able to say it in order
 - **Certification:** track chosen at **D6** from market recon, not up front — Juniper or Cisco SP. See [docs/resources.md](docs/resources.md#certification-track--decide-at-d6-not-before). Exams come after D100
 
 ---
