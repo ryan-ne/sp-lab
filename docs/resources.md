@@ -116,6 +116,8 @@ Addressing RFCs referenced by [addressing-plan.md](addressing-plan.md): [3849](h
 
 **Cisco Networking Academy** (https://www.netacad.com/) tops out at CCNA — ITN, SRWE, ENSA. Nothing in it reaches IS-IS wide metrics, SR, L3VPN, RPKI, or peering. Below the starting point of this plan.
 
+> Skills for All is gone as a separate platform — Cisco folded `skillsforall.com` into `netacad.com` (announced [September 2024](https://blogs.cisco.com/our-corporate-purpose/cisco-networking-academy-unveils-new-unified-teaching-and-learning-experience)); one site now, ~50 courses. Doesn't change the verdict — the ceiling is still CCNA. *Checked 2026-08-07.*
+
 **Packet Tracer** cannot simulate MPLS, LDP, SR, L3VPN, EVPN, or meaningful BGP communities. containerlab covers everything from B5 onward and does it properly. Don't split lab time between the two.
 
 ### Certification track — decide at D6, not before
@@ -131,6 +133,15 @@ D6 profiles real regional ISPs in your market — let that recon pick the track.
 
 ### Lab image note
 
-**Cisco Modeling Labs — Personal** (https://www.cisco.com/go/cml) bundles licensed IOS-XR / XRv9000. A cleaner route to the **D21** IOS-XR RPL work if XRd images give trouble under containerlab. Paid, annual.
+**Cisco Modeling Labs** (https://www.cisco.com/go/cml) ships licensed Cisco images, IOS-XR among them. A cleaner route to the **D21** IOS-XR RPL work if XRd gives trouble under containerlab.
 
-> Verify before spending: CML Personal pricing, and the current state of the NetAcad / Skills for All consolidation. Both moved recently.
+| Edition | Price | Nodes | Notes |
+|---|---|---|---|
+| **Free** | $0 | 5 | No expiry. Reference platforms + open-source hosts |
+| Personal | $199 | 20 | Annual. Community support only, cannot expand |
+| Personal Plus | $349 | 40 | Annual. Community support only, cannot expand |
+| Enterprise | contact Cisco | 20, expandable +300 | TAC support |
+
+*Prices from [cisco.com](https://www.cisco.com/c/en/us/products/cloud-systems-management/modeling-labs/index.html), checked 2026-08-07. USD; Personal tiers also purchasable with Cisco Learning Credits (2 / 4).*
+
+**Try the free tier first.** 5 nodes is enough for D21 — that day only needs a couple of XR routers to write RPL against. Cisco's page does not spell out whether IOS-XR is in the free tier's reference-platform set, so confirm that before assuming, and before paying.
