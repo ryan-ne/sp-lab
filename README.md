@@ -51,7 +51,7 @@ Add a `.gitignore` for `*.qcow2`, `*.tar`, `clab-*/` — never commit vendor ima
 
 ## Resource library
 
-<details>
+<details open>
 <summary><b>Free structured courses</b></summary>
 
 | Resource | Link |
@@ -65,7 +65,7 @@ Add a `.gitignore` for `*.qcow2`, `*.tar`, `clab-*/` — never commit vendor ima
 
 </details>
 
-<details>
+<details open>
 <summary><b>Labs and tooling</b></summary>
 
 | Resource | Link |
@@ -82,7 +82,7 @@ Add a `.gitignore` for `*.qcow2`, `*.tar`, `clab-*/` — never commit vendor ima
 
 </details>
 
-<details>
+<details open>
 <summary><b>Vendor docs and free books</b></summary>
 
 | Resource | Link |
@@ -96,7 +96,7 @@ Add a `.gitignore` for `*.qcow2`, `*.tar`, `clab-*/` — never commit vendor ima
 
 </details>
 
-<details>
+<details open>
 <summary><b>Operational intelligence</b></summary>
 
 | Resource | Link |
@@ -111,7 +111,7 @@ Add a `.gitignore` for `*.qcow2`, `*.tar`, `clab-*/` — never commit vendor ima
 
 </details>
 
-<details>
+<details open>
 <summary><b>Core RFCs</b></summary>
 
 Read at `https://datatracker.ietf.org/doc/html/rfcNNNN`
