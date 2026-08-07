@@ -315,10 +315,10 @@ Answer out loud, from memory, on review days. If you can't, the block isn't fini
 
 ## Threaded throughout
 
-- **One NANOG or RIPE talk per week** — free archives, where operational reality is discussed
+- **One talk per week** — NANOG or RIPE for operational reality, Cisco Live `BRKSPG`/`BRKMPL` on-demand for protocol depth. Rotate between them
 - **Lurk** on the NANOG list, RIPE Routing WG, and your local NOG. Then answer something
 - **15 minutes daily on the Junos CLI** — MX/PTX dominate SP, and Junos teaches policy thinking
-- **After D100:** JNCIA-Junos → JNCIS-SP → JNCIP-SP · https://learningportal.juniper.net/
+- **Certification:** track chosen at **D6** from market recon, not up front — Juniper or Cisco SP. See [docs/resources.md](docs/resources.md#certification-track--decide-at-d6-not-before). Exams come after D100
 
 ---
 

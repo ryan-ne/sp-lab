@@ -7,6 +7,7 @@ Everything referenced by the [140-day plan](../README.md). Free unless marked ot
 - [Vendor docs and free books](#vendor-docs-and-free-books)
 - [Operational intelligence](#operational-intelligence)
 - [Core RFCs](#core-rfcs)
+- [Vendor training and certification](#vendor-training-and-certification)
 
 ---
 
@@ -94,3 +95,42 @@ Everything referenced by the [140-day plan](../README.md). Free unless marked ot
 Plus **[RIPE-580](https://www.ripe.net/publications/docs/ripe-580/)** on route flap damping — read at D40.
 
 Addressing RFCs referenced by [addressing-plan.md](addressing-plan.md): [3849](https://datatracker.ietf.org/doc/html/rfc3849) (IPv6 documentation prefix), [5737](https://datatracker.ietf.org/doc/html/rfc5737) (IPv4 documentation prefixes), [6598](https://datatracker.ietf.org/doc/html/rfc6598) (shared address space), [6164](https://datatracker.ietf.org/doc/html/rfc6164) (/127 on links), [6996](https://datatracker.ietf.org/doc/html/rfc6996) (private ASNs).
+
+---
+
+## Vendor training and certification
+
+### Worth the time
+
+| Resource | Link | Why |
+|---|---|---|
+| **Cisco Live on-demand** | https://www.ciscolive.com/on-demand.html | Free, no ticket. `BRKSPG` / `BRKMPL` sessions are deep dives on SR, TI-LFA, EVPN, BGP scale from the people who built it. Rotate into the weekly talk alongside NANOG and RIPE |
+| Cisco Learning Network | https://learningnetwork.cisco.com/ | Free forums and study material; active SPCOR (350-501) community |
+| Cisco DevNet | https://developer.cisco.com/ | Free automation and API tracks, pyATS — feeds D96–D97 |
+| Cisco U. | https://u.cisco.com/ | Free tier carries some SP paths; most CCNP SP content sits behind the paywall |
+| Juniper Learning Portal | https://learningportal.juniper.net/ | Free JNCIA/JNCIS training — the primary track for this plan |
+| MikroTik training | https://mikrotik.com/training | **MTCINE** is genuinely BGP/MPLS/TE focused and cheap. Real relevance for WISP and regional-ISP roles |
+| Nokia Service Routing Certification | https://www.nokia.com/networks/training/service-routing-certification/ | NRS I → NRS II → SRA. Matters if 7750s appear in your target networks. Self-study material free, exams paid |
+
+### Skip
+
+**Cisco Networking Academy** (https://www.netacad.com/) tops out at CCNA — ITN, SRWE, ENSA. Nothing in it reaches IS-IS wide metrics, SR, L3VPN, RPKI, or peering. Below the starting point of this plan.
+
+**Packet Tracer** cannot simulate MPLS, LDP, SR, L3VPN, EVPN, or meaningful BGP communities. containerlab covers everything from B5 onward and does it properly. Don't split lab time between the two.
+
+### Certification track — decide at D6, not before
+
+Two viable paths. **Pick one.**
+
+| Track | Path | Fits |
+|---|---|---|
+| Juniper | JNCIA-Junos → JNCIS-SP → JNCIP-SP | MX/PTX shops; tier-1/2 backbones |
+| Cisco | CCNP Service Provider: SPCOR 350-501 + concentration | ASR9K/NCS shops; regional ISPs skew this way |
+
+D6 profiles real regional ISPs in your market — let that recon pick the track. Job ads for the specific employers you're targeting decide it, not general reputation.
+
+### Lab image note
+
+**Cisco Modeling Labs — Personal** (https://www.cisco.com/go/cml) bundles licensed IOS-XR / XRv9000. A cleaner route to the **D21** IOS-XR RPL work if XRd images give trouble under containerlab. Paid, annual.
+
+> Verify before spending: CML Personal pricing, and the current state of the NetAcad / Skills for All consolidation. Both moved recently.
