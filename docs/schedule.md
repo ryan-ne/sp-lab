@@ -1,0 +1,129 @@
+# Schedule
+
+Target finish: **31 December 2026**. Written 7 Aug 2026.
+
+Run [`tools/today.ps1`](../tools/today.ps1) for live position — this file is the plan, that script is the truth.
+
+---
+
+## The deficit, worked out
+
+| | |
+|---|---|
+| Today | Fri 7 Aug 2026 |
+| Deadline | Thu 31 Dec 2026 |
+| Calendar days remaining, inclusive | **147** |
+| Study pattern | 1.5 h × 5 weekdays + 3 h × 1 weekend day = **6 sessions/week** |
+| Rest day | Sunday (see below — it is not really rest) |
+| Sessions available, 8 Aug → 31 Dec | 146 days − 21 Sundays = **125** |
+| Plan length | **140** days |
+| Completed | 1 (B7) |
+| Sessions needed at full length | **139** |
+| **Deficit** | **14** |
+
+147 days is exactly 21 weeks. At 6/week that is 126 sessions from today, 125 from tomorrow. The plan needs 139. **Fourteen days must come out.**
+
+Seven sessions a week would technically close it — 21 × 7 = 147 — but that is a five-month run with no sick day, no work crunch, no bad week. It fails on the first one.
+
+## After the merges
+
+| | |
+|---|---|
+| Plan length after 14 merges | **126** |
+| Less B7 (done) | **125 sessions needed** |
+| Sessions available | **125** |
+| **Slack** | **0** |
+
+**Zero.** Not "some". The merges make the deadline *reachable*, not *comfortable*. One missed session without making it up moves the finish into January.
+
+### Where the slack actually comes from
+
+Sunday is banked, not scheduled. **21 Sundays** between here and the deadline, unallocated. Miss a Tuesday, take that Sunday. Don't miss anything, don't work them.
+
+That is the buffer. It only works if Sunday stays empty by default — the moment Sunday becomes a normal session, the buffer is gone and you are back to needing a perfect run.
+
+---
+
+## The 14 merges — PROPOSED, not yet applied
+
+> Status: awaiting sign-off. The README day list is unchanged until then.
+
+Rules applied: only reading days merge; a hands-on lab is never absorbed into a reading day; artifact days A1–A7 are untouched; REVIEW days survive.
+
+| # | Merge | Rationale |
+|---|---|---|
+| 1 | B14 → B15 | OSPFv3/dual-stack reading folds into the REVIEW day |
+| 2 | B21 → B22 | "What BGP is for" is a page at 7 years in; B22 is the real content |
+| 3 | B26 → B27 | `network` vs redistribute is origination — belongs with origin/AS-path |
+| 4 | B33 → B34 | Aggregation is the mechanism multihoming depends on |
+| 5 | B36 → B37 | IPv6 address types feed directly into the provider plan |
+| 6 | D2 → D1 | Both are the money model — tiers, transit, 95th percentile |
+| 7 | D3 → D4 | Network roles and the platforms that fill them are one topic |
+| 8 | D8 → D9 | NET/NSAP decode is twenty minutes |
+| 9 | D31 → D29 | ORR and confederations are the "why not this" footnote to RRs |
+| 10 | D39 → D40 | PIC and RIB/FIB are both forwarding-plane behaviour |
+| 11 | D58 → D56 | PCEP is how SR-TE policies get programmed |
+| 12 | D59 → D60 | SRv6 folds into the block REVIEW |
+| 13 | D69 → D70 | Inter-AS A/B/C is one topic cut arbitrarily in half |
+| 14 | D88 → D89 | On-net caches and traffic ratios are the same conversation |
+
+**Considered and rejected:** D24 → D23. Path selection is the single most-asked question in SP interviews; D23 stays a dedicated drill day.
+
+**Protected throughout:** D42 (A3), D90 (A6), D95 (A7) — the three the README says to save if everything else slips.
+
+---
+
+## Milestones
+
+Assumes no slippage from 8 Aug, Sundays banked. Dates move right on every missed session — that is expected and fine; the point is the shape, not the precision.
+
+| Session | Date | Milestone |
+|---|---|---|
+| 1 | Sat 8 Aug | B1 — Linux, `ip`, tcpdump |
+| 6 | Fri 14 Aug | B6 — vendor images pulled |
+| 13 | Sat 22 Aug | B13 — multi-area OSPF lab |
+| 14 | Mon 24 Aug | B15 — REVIEW |
+| 19 | Sat 29 Aug | B20 — Junos policy-statement |
+| 34 | Wed 16 Sep | B35 — 3-AS topology (D22 prerequisite) |
+| 38 | Mon 21 Sep | **B40 — bridge capstone** |
+| 39 | Tue 22 Sep | D1 — core plan starts |
+| 44 | Mon 28 Sep | **D7 → A1** |
+| 57 | Tue 13 Oct | **D21 → A2** |
+| 76 | Wed 4 Nov | **D42 → A3** ⭐ + blog 1 |
+| 92 | Mon 23 Nov | D60 — REVIEW |
+| 105 | Tue 8 Dec | **D75 → A5** |
+| 118 | Wed 23 Dec | **D90 → A6** ⭐ + blog 2 |
+| 123 | Tue 29 Dec | **D95 → A7** ⭐ |
+| 125 | Thu 31 Dec | D100 — self-test, apply to five roles |
+
+### The Christmas problem
+
+A6 lands 23 Dec, A7 on 29 Dec, D100 on 31 Dec. Two of the three flagship artifacts and the capstone fall inside the Christmas week, when a full-length session is least likely.
+
+Options, decide by **D60 (23 Nov)** — not in December:
+
+1. **Bank Sundays hard from now.** Every Sunday worked before 1 Dec buys a day of December slack.
+2. **Merge four more reading days** in Blocks 5–6 (candidates: D67→D68, D72→D73, D84→D85, D43→D44) to pull everything ~4 days left.
+3. **Accept a January finish for D96–D100.** A7 is the portfolio piece; the CV and applications can run into the first week of January without costing anything real.
+
+Option 3 is the honest one if the run has been rough. A7 finished well on 5 Jan beats A7 rushed on 29 Dec.
+
+---
+
+## Weekly retro — 15 minutes, Saturday
+
+Cheap, and the only thing that stops a two-day slip becoming a two-week one.
+
+1. `.\tools\today.ps1` — read the slack number out loud.
+2. **What slipped, and why?** Illness, work, or the day was genuinely bigger than a session? The third one is a planning error — record it, the estimate was wrong.
+3. **Checkpoint cards** — anything reset twice? That day was ticked too early. Redo the lab.
+4. **Re-plan.** If slack is negative, fix it this week: bank a Sunday, or merge a reading day and record it below.
+5. Commit the retro to the month's journal file.
+
+### Merge log
+
+Merges taken beyond the 14 above. Every row is a decision made deliberately instead of by drift.
+
+| Date | Merge | Why |
+|---|---|---|
+| | | |
