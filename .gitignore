@@ -1,0 +1,40 @@
+# Vendor images — never commit
+*.qcow2
+*.qcow
+*.vmdk
+*.tar
+*.tar.gz
+*.tgz
+*.iso
+
+# containerlab runtime artifacts
+clab-*/
+.clab.*
+*.clab.bak
+ansible-inventory.yml
+topology-data.json
+graph/
+
+# Packet captures
+*.pcap
+*.pcapng
+
+# Secrets / local state
+.env
+*.key
+*.pem
+!*.example
+
+# Python tooling
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Editor / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
