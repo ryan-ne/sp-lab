@@ -42,7 +42,8 @@ Reading-only days get an extra field: **Cheapest hands-on**. Ten minutes at a te
 | Linux, containers, lab foundations | B1–B7 | [`B01-B07.md`](B01-B07.md) |
 | Link-state internals | B8–B15 | [`B08-B15.md`](B08-B15.md) |
 | Redistribution and policy | B16–B20 | [`B16-B20.md`](B16-B20.md) |
-| BGP from zero to CCNP level | B21–B35 | not written yet |
+| BGP, first half | B21–B28 | [`B21-B28.md`](B21-B28.md) |
+| BGP, second half | B29–B35 | not written yet |
 | IPv6 and Junos onboarding | B36–B40 | not written yet |
 | Core plan | D1–D100 | not written yet |
 
