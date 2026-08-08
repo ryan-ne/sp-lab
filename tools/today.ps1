@@ -58,7 +58,8 @@ Write-Row 'Days done'      ("{0} / {1}" -f $tickedActual, $planTotal)
 Write-Row 'Days remaining' $remaining
 
 # Current day = the first unticked box in file order.
-$firstOpen = [regex]::Match($readme, '(?m)^\s*-\s\[\s\]\s\*\*(?<id>[BD]\d+)\*\*\s*—\s*(?<txt>.+)$')
+# A merged day reads "**B14 + B15**", so match the whole bold span.
+$firstOpen = [regex]::Match($readme, '(?m)^\s*-\s\[\s\]\s\*\*(?<id>[BD]\d+[^*]*)\*\*\s*—\s*(?<txt>.+)$')
 if ($firstOpen.Success) {
     $txt = $firstOpen.Groups['txt'].Value -replace '\s*·.*$', ''
     if ($txt.Length -gt 58) { $txt = $txt.Substring(0, 55) + '...' }

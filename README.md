@@ -4,14 +4,14 @@
 
 **Starting point:** 7 years enterprise networking, CCNA-level formal depth
 **Target roles:** IP Engineer · Backbone Engineer · Peering Engineer · Network Engineer (Service Provider)
-**Structure:** 40-day bridge phase (`B1–B40`) + 100-day core plan (`D1–D100`)
+**Structure:** 40-day bridge phase (`B1–B40`) + 100-day core plan (`D1–D100`), condensed to **126 sessions** by 14 merges — see [`docs/schedule.md`](docs/schedule.md). Day IDs are unchanged, so `D42` still means A3
 **Daily load:** ~1.5 hrs weekdays, ~3 hrs one weekend day → roughly 5 months
 
 ---
 
 ## Progress
 
-**Bridge phase:** 1 / 40 · **Core plan:** 0 / 100 · **Total:** 1 / 140
+**Bridge phase:** 1 / 35 · **Core plan:** 0 / 91 · **Total:** 1 / 126
 
 Update the counts as you go. Every ticked box is a commit — the history is the proof.
 
@@ -91,8 +91,7 @@ Courses, lab tooling, vendor docs, operational intelligence, and the core RFC li
 - [ ] **B11** — Multi-area OSPF, ABR/ASBR, stub/totally-stubby/NSSA
 - [ ] **B12** — SPF timers, LSA throttling, incremental SPF, reference bandwidth
 - [ ] **B13** — **Lab:** multi-area OSPF, 6 nodes, verify LSDB per area, partition area 0 on purpose
-- [ ] **B14** — OSPFv3 and dual-stack · Day One: Routing the IP, ch. 4–5
-- [ ] **B15** — **REVIEW.** Explain LSDB synchronisation from memory
+- [ ] **B14 + B15** — OSPFv3 and dual-stack · Day One: Routing the IP, ch. 4–5. Then **REVIEW:** explain LSDB synchronisation from memory
 
 </details>
 
@@ -110,20 +109,17 @@ Courses, lab tooling, vendor docs, operational intelligence, and the core RFC li
 <details>
 <summary><b>B21–B35 · BGP from zero to CCNP level</b></summary>
 
-- [ ] **B21** — What BGP is for: AS, path vector, inter- vs intra-domain
-- [ ] **B22** — Session mechanics: TCP 179, FSM, capabilities, message types · RFC 4271
+- [ ] **B21 + B22** — What BGP is for: AS, path vector, inter- vs intra-domain. Session mechanics: TCP 179, FSM, capabilities, message types · RFC 4271
 - [ ] **B23** — **Lab:** first eBGP session, advertise a loopback, watch the UPDATE in tcpdump
 - [ ] **B24** — eBGP vs iBGP: the split-horizon rule and why full mesh is required
 - [ ] **B25** — **Lab:** iBGP inside an AS, next-hop-self, IGP for reachability
-- [ ] **B26** — `network` statement vs redistribution vs aggregation — why `network` is SP-safe
-- [ ] **B27** — AS-path, origin, next-hop. Prepending and loop prevention
+- [ ] **B26 + B27** — `network` statement vs redistribution vs aggregation, why `network` is SP-safe. AS-path, origin, next-hop. Prepending and loop prevention
 - [ ] **B28** — Local-preference and MED — which direction each influences
 - [ ] **B29** — **Path selection algorithm.** Write it from memory, in order, three times
 - [ ] **B30** — **Lab:** manipulate the winning path four different ways
 - [ ] **B31** — Communities: standard (1997), extended (4360), large (8092)
 - [ ] **B32** — Filtering: prefix-lists, AS-path ACLs, route-maps in/out · RFC 8212
-- [ ] **B33** — Aggregation: `aggregate-address`, atomic-aggregate, suppress-maps
-- [ ] **B34** — Multihoming basics: two upstreams, load-sharing, why it's harder than it looks
+- [ ] **B33 + B34** — Aggregation: `aggregate-address`, atomic-aggregate, suppress-maps. Multihoming basics: two upstreams, load-sharing, why it's harder than it looks
 - [ ] **B35** — **REVIEW + Lab:** 3-AS topology with full basic policy. Prerequisite for D22
 
 </details>
@@ -131,8 +127,7 @@ Courses, lab tooling, vendor docs, operational intelligence, and the core RFC li
 <details>
 <summary><b>B36–B40 · IPv6 and Junos onboarding</b></summary>
 
-- [ ] **B36** — IPv6 beyond CCNA: address types, ICMPv6, NDP, SLAAC vs DHCPv6
-- [ ] **B37** — Provider IPv6 addressing design: /32, /48, /56, /64, /127 links
+- [ ] **B36 + B37** — IPv6 beyond CCNA: address types, ICMPv6, NDP, SLAAC vs DHCPv6. Provider IPv6 addressing design: /32, /48, /56, /64, /127 links
 - [ ] **B38** — **Lab:** dual-stack the B35 topology, IPv6 BGP address family
 - [ ] **B39** — Junos onboarding: candidate config, `commit confirmed`, rollback, `show | compare`, config groups
 - [ ] **B40** — **BRIDGE CAPSTONE:** rebuild B35 on vJunos in containerlab, dual-stacked, from scratch, no notes
@@ -146,10 +141,8 @@ Courses, lab tooling, vendor docs, operational intelligence, and the core RFC li
 <details>
 <summary><b>Block 1 · D1–D7 · The service provider mindset</b></summary>
 
-- [ ] **D1** — Tiers 1/2/3, transit vs peering, the default-free zone. Draw the money flow
-- [ ] **D2** — 95th percentile billing (work the maths), commits, bursts, cost per Mbps, ratio disputes
-- [ ] **D3** — ISP anatomy: access → aggregation → PE → P → peering edge. Mark where policy applies
-- [ ] **D4** — Platforms: MX vs PTX, ASR9K vs NCS, Nokia 7750. Roles and FIB scale limits
+- [ ] **D1 + D2** — Tiers 1/2/3, transit vs peering, the default-free zone. Draw the money flow. 95th percentile billing (work the maths), commits, bursts, cost per Mbps, ratio disputes
+- [ ] **D3 + D4** — ISP anatomy: access → aggregation → PE → P → peering edge, marking where policy applies. Platforms: MX vs PTX, ASR9K vs NCS, Nokia 7750 — roles and FIB scale limits
 - [ ] **D5** — RIRs, ASN/prefix allocation, IRR objects (`aut-num`, `route`, `as-set`), LOAs
 - [ ] **D6** — Recon on PeeringDB, bgp.tools, RIPEstat, RIPE Atlas. Profile a real regional ISP
 - [ ] **D7** — **Read RFC 7454 end to end.** Write up the ISP profile → **Artifact A1**
@@ -159,8 +152,7 @@ Courses, lab tooling, vendor docs, operational intelligence, and the core RFC li
 <details>
 <summary><b>Block 2 · D8–D21 · IS-IS, IPv6, routing policy</b></summary>
 
-- [ ] **D8** — IS-IS NET/NSAP addressing, area ID, system ID, NSEL
-- [ ] **D9** — L1/L2, hellos, LSP flooding, CSNP/PSNP. What IS-IS doesn't need that OSPF does
+- [ ] **D8 + D9** — IS-IS NET/NSAP addressing, area ID, system ID, NSEL. L1/L2, hellos, LSP flooding, CSNP/PSNP. What IS-IS doesn't need that OSPF does
 - [ ] **D10** — TLV extensibility. Wide metrics · RFC 5305
 - [ ] **D11** — **Lab:** 6-node L2-only IS-IS core. Verify the LSDB by hand
 - [ ] **D12** — **Lab:** authentication, wide metrics, overload bit on startup
@@ -186,9 +178,8 @@ Courses, lab tooling, vendor docs, operational intelligence, and the core RFC li
 - [ ] **D26** — **Lab:** iBGP full mesh, next-hop-self, IGP underneath
 - [ ] **D27** — **Lab:** break next-hop resolution, fix it three ways, compare trade-offs
 - [ ] **D28** — **REVIEW.** Path selection drill
-- [ ] **D29** — Route reflectors: cluster ID, originator ID, path hiding, redundancy
+- [ ] **D29 + D31** — Route reflectors: cluster ID, originator ID, path hiding, redundancy. Then ORR and confederations — why most operators chose RRs
 - [ ] **D30** — **Lab:** redundant RRs, then add-path · RFC 7911. Compare visibility
-- [ ] **D31** — ORR and confederations. Why most operators chose RRs
 - [ ] **D32** — **Community scheme pt.1:** informational tags — customer/peer/transit/IXP, geo, PoP
 - [ ] **D33** — **Community scheme pt.2:** action communities — local-pref override, prepend-on-demand, regional no-advertise, blackhole · RFC 7999
 - [ ] **D34** — **Lab:** tag every route on ingress; verify propagation and boundary stripping
@@ -196,8 +187,7 @@ Courses, lab tooling, vendor docs, operational intelligence, and the core RFC li
 - [ ] **D36** — Inbound TE: prepending, MED, more-specifics. Write down why it's weak
 - [ ] **D37** — Filtering: bogons, max-prefix with warnings, AS-path filters · RFC 8212
 - [ ] **D38** — Session security: MD5 vs TCP-AO, GTSM, graceful restart vs GR-helper
-- [ ] **D39** — BGP PIC edge and core, next-hop tracking
-- [ ] **D40** — RIB vs FIB, FIB compression, TCAM limits. Flap damping → then read RIPE-580
+- [ ] **D39 + D40** — BGP PIC edge and core, next-hop tracking. RIB vs FIB, FIB compression, TCAM limits. Flap damping → then read RIPE-580
 - [ ] **D41** — **Lab:** full ingress policy framework across all three ASes
 - [ ] **D42** — **Lab:** egress policy — prove you never transit between peers → **Artifact A3** ⭐ + **Blog post 1**
 
@@ -219,11 +209,9 @@ Courses, lab tooling, vendor docs, operational intelligence, and the core RFC li
 - [ ] **D53** — TI-LFA: P-space, Q-space, post-convergence path, microloop avoidance
 - [ ] **D54** — **Lab:** TI-LFA, fail a link under traffic, decode the repair label stack
 - [ ] **D55** — Convergence ordering. Watch one NANOG SR deployment talk
-- [ ] **D56** — SR-TE policies: candidate paths, preference, binding SID
+- [ ] **D56 + D58** — SR-TE policies: candidate paths, preference, binding SID. PCEP, stateful vs stateless PCE, SR-PCE
 - [ ] **D57** — **Lab:** colour community → SR-TE policy → steer traffic off shortest path
-- [ ] **D58** — PCEP, stateful vs stateless PCE, SR-PCE
-- [ ] **D59** — SRv6: locator/function, uSID, END/END.X · RFC 8986. Learn both sides of the argument
-- [ ] **D60** — SP QoS: DiffServ, TC marking, uniform vs pipe vs short-pipe. **REVIEW**
+- [ ] **D59 + D60** — SRv6: locator/function, uSID, END/END.X · RFC 8986, both sides of the argument. SP QoS: DiffServ, TC marking, uniform vs pipe vs short-pipe. **REVIEW**
 
 </details>
 
@@ -238,8 +226,7 @@ Courses, lab tooling, vendor docs, operational intelligence, and the core RFC li
 - [ ] **D66** — **Lab:** both customers on 10.0.0.0/8. Prove RD separates them, then leak on purpose
 - [ ] **D67** — Hub-and-spoke, extranet, shared services, inter-VRF leaking
 - [ ] **D68** — Internet access from a VRF: full table, default leak, or central breakout
-- [ ] **D69** — Inter-AS options A and B. Note next-hop rewrite in B
-- [ ] **D70** — Inter-AS option C with BGP-LU, plus Carrier Supporting Carrier
+- [ ] **D69 + D70** — Inter-AS options A and B, noting next-hop rewrite in B. Option C with BGP-LU, plus Carrier Supporting Carrier
 - [ ] **D71** — EVPN fundamentals · RFC 7432. Route types 1–5. Why it displaced VPLS
 - [ ] **D72** — EVPN multihoming: ESI, DF election, split-horizon, all-active vs single-active
 - [ ] **D73** — MAC mobility, ARP/ND suppression, EVPN-IRB symmetric vs asymmetric
@@ -263,8 +250,7 @@ Courses, lab tooling, vendor docs, operational intelligence, and the core RFC li
 - [ ] **D85** — Hijack response playbook: detect → verify → contact → mitigate → document
 - [ ] **D86** — **Lab: RTBH** · RFC 7999. Customer-triggered /32 blackhole, propagated upstream
 - [ ] **D87** — **Flowspec** · RFC 8955. Lab a rate-limit rule. Scrubbing integration and the GRE return path
-- [ ] **D88** — On-net CDN caches: Netflix OCA, Google GGC, Akamai, Meta MNA. Effect on bill and ratios
-- [ ] **D89** — Flow visibility: NetFlow/IPFIX/sFlow, sampling, collectors. Build a traffic-ratio report
+- [ ] **D88 + D89** — On-net CDN caches: Netflix OCA, Google GGC, Akamai, Meta MNA, and the effect on bill and ratios. Flow visibility: NetFlow/IPFIX/sFlow, sampling, collectors. Build a traffic-ratio report
 - [ ] **D90** — **DELIVERABLE: filter automation pipeline** → **Artifact A6** ⭐ + **Blog post 2**
 
 </details>

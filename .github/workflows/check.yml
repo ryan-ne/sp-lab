@@ -24,26 +24,38 @@ jobs:
           $total    = $ticked + $unticked
 
           $m = [regex]::Match($readme,
-            '\*\*Bridge phase:\*\*\s*(?<b>\d+)\s*/\s*\d+.*?\*\*Core plan:\*\*\s*(?<c>\d+)\s*/\s*\d+.*?\*\*Total:\*\*\s*(?<t>\d+)\s*/\s*(?<tt>\d+)')
+            '\*\*Bridge phase:\*\*\s*(?<b>\d+)\s*/\s*(?<bt>\d+).*?\*\*Core plan:\*\*\s*(?<c>\d+)\s*/\s*(?<ct>\d+).*?\*\*Total:\*\*\s*(?<t>\d+)\s*/\s*(?<tt>\d+)')
           if (-not $m.Success) {
             throw "Could not parse the progress line in README.md."
           }
 
-          # Bridge days are B*, core days are D*.
-          $bTicked = ([regex]::Matches($readme, '(?m)^\s*-\s\[x\]\s\*\*B\d+\*\*')).Count
-          $cTicked = ([regex]::Matches($readme, '(?m)^\s*-\s\[x\]\s\*\*D\d+\*\*')).Count
+          # Bridge days are B*, core days are D*. A merged day reads
+          # "**B14 + B15**", so do not anchor on the closing asterisks.
+          $bTicked = ([regex]::Matches($readme, '(?m)^\s*-\s\[x\]\s\*\*B\d+')).Count
+          $cTicked = ([regex]::Matches($readme, '(?m)^\s*-\s\[x\]\s\*\*D\d+')).Count
+          $bTotal  = ([regex]::Matches($readme, '(?m)^\s*-\s\[[x ]\]\s\*\*B\d+')).Count
+          $cTotal  = ([regex]::Matches($readme, '(?m)^\s*-\s\[[x ]\]\s\*\*D\d+')).Count
 
           $errors = @()
           if ([int]$m.Groups['t'].Value  -ne $ticked)  { $errors += "Total says $($m.Groups['t'].Value), checkboxes say $ticked" }
           if ([int]$m.Groups['b'].Value  -ne $bTicked) { $errors += "Bridge says $($m.Groups['b'].Value), B-checkboxes say $bTicked" }
           if ([int]$m.Groups['c'].Value  -ne $cTicked) { $errors += "Core says $($m.Groups['c'].Value), D-checkboxes say $cTicked" }
           if ([int]$m.Groups['tt'].Value -ne $total)   { $errors += "Plan length says $($m.Groups['tt'].Value), found $total checkboxes" }
+          if ([int]$m.Groups['bt'].Value -ne $bTotal)  { $errors += "Bridge length says $($m.Groups['bt'].Value), found $bTotal B-days" }
+          if ([int]$m.Groups['ct'].Value -ne $cTotal)  { $errors += "Core length says $($m.Groups['ct'].Value), found $cTotal D-days" }
+          if ($bTotal + $cTotal -ne $total)            { $errors += "B+D days ($bTotal + $cTotal) do not sum to $total checkboxes" }
+
+          # The 14 merges land the plan on 126. Changing that is a
+          # scheduling decision, so it must be a deliberate edit here.
+          if ($total -ne 126) {
+            $errors += "Plan is $total days, expected 126 after the merges. If this is intentional, update docs/schedule.md and this check together."
+          }
 
           if ($errors) {
             $errors | ForEach-Object { Write-Host "::error::$_" }
             exit 1
           }
-          Write-Host "OK — $ticked / $total ticked (bridge $bTicked, core $cTicked)"
+          Write-Host "OK — $ticked / $total ticked (bridge $bTicked/$bTotal, core $cTicked/$cTotal)"
 
       - name: No vendor images committed
         shell: pwsh
@@ -73,7 +85,7 @@ jobs:
         shell: pwsh
         run: |
           $readme = Get-Content README.md -Raw
-          $ticks = [regex]::Matches($readme, '(?m)^\s*-\s\[x\]\s\*\*(?<id>[BD]\d+)\*\*')
+          $ticks = [regex]::Matches($readme, '(?m)^\s*-\s\[x\]\s\*\*(?<id>[BD]\d+)')
           if ($ticks.Count -eq 0) {
             Write-Host "No days ticked yet — nothing to check."
             exit 0

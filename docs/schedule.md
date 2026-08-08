@@ -44,9 +44,11 @@ That is the buffer. It only works if Sunday stays empty by default — the momen
 
 ---
 
-## The 14 merges — PROPOSED, not yet applied
+## The 14 merges — APPLIED 2026-08-08
 
-> Status: awaiting sign-off. The README day list is unchanged until then.
+> Signed off and applied to the README day list. Plan length is now **126**; `.github/workflows/check.yml` asserts that number, so changing it again is a deliberate edit in two places.
+>
+> **Day IDs were not renumbered.** A merged day reads `**D69 + D70**`. Renumbering would have broken every cross-reference in `days/`, `checkpoints.md` and `artifacts.md` — and `D42` *is* the name of A3.
 
 Rules applied: only reading days merge; a hands-on lab is never absorbed into a reading day; artifact days A1–A7 are untouched; REVIEW days survive.
 
