@@ -81,26 +81,29 @@ Assumes no slippage from 8 Aug, Sundays banked. Dates move right on every missed
 |---|---|---|
 | 1 | Sat 8 Aug | B1 — Linux, `ip`, tcpdump |
 | 6 | Fri 14 Aug | B6 — vendor images pulled |
-| 13 | Sat 22 Aug | B13 — multi-area OSPF lab |
-| 14 | Mon 24 Aug | B15 — REVIEW |
-| 19 | Sat 29 Aug | B20 — Junos policy-statement |
-| 34 | Wed 16 Sep | B35 — 3-AS topology (D22 prerequisite) |
-| 38 | Mon 21 Sep | **B40 — bridge capstone** |
-| 39 | Tue 22 Sep | D1 — core plan starts |
-| 44 | Mon 28 Sep | **D7 → A1** |
-| 57 | Tue 13 Oct | **D21 → A2** |
-| 76 | Wed 4 Nov | **D42 → A3** ⭐ + blog 1 |
-| 92 | Mon 23 Nov | D60 — REVIEW |
-| 105 | Tue 8 Dec | **D75 → A5** |
-| 118 | Wed 23 Dec | **D90 → A6** ⭐ + blog 2 |
-| 123 | Tue 29 Dec | **D95 → A7** ⭐ |
+| 12 | Fri 21 Aug | B13 — multi-area OSPF lab |
+| 13 | Sat 22 Aug | B15 — REVIEW (+ B14) |
+| 18 | Fri 28 Aug | B20 — Junos policy-statement |
+| 25 | Sat 5 Sep | B29 — path selection drill · **CP-02 first attempt** |
+| 30 | Fri 11 Sep | B35 — 3-AS topology (D22 prerequisite) |
+| 34 | Wed 16 Sep | **B40 — bridge capstone** |
+| 35 | Thu 17 Sep | D1 — core plan starts |
+| 39 | Tue 22 Sep | **D7 → A1** |
+| 52 | Wed 7 Oct | **D21 → A2** |
+| 71 | Thu 29 Oct | **D42 → A3** ⭐ + blog 1 |
+| 87 | Tue 17 Nov | D60 — REVIEW · **Christmas decision point** |
+| 101 | Thu 3 Dec | **D75 → A5** |
+| 115 | Sat 19 Dec | **D90 → A6** ⭐ + blog 2 |
+| 120 | Fri 25 Dec | **D95 → A7** ⭐ |
 | 125 | Thu 31 Dec | D100 — self-test, apply to five roles |
+
+Derived from the post-merge day sequence, not estimated. To regenerate after any further merge, run the derivation in `tools/today.ps1` against the updated day list.
 
 ### The Christmas problem
 
-A6 lands 23 Dec, A7 on 29 Dec, D100 on 31 Dec. Two of the three flagship artifacts and the capstone fall inside the Christmas week, when a full-length session is least likely.
+**A7 lands on Christmas Day.** A6 on Sat 19 Dec, A7 on Fri 25 Dec, D100 on 31 Dec — the capstone and one flagship sit inside the week a full-length session is least likely, and the capstone lands on the one day it is least likely of all.
 
-Options, decide by **D60 (23 Nov)** — not in December:
+Options, decide by **D60 (Tue 17 Nov)** — not in December:
 
 1. **Bank Sundays hard from now.** Every Sunday worked before 1 Dec buys a day of December slack.
 2. **Merge four more reading days** in Blocks 5–6 (candidates: D67→D68, D72→D73, D84→D85, D43→D44) to pull everything ~4 days left.
