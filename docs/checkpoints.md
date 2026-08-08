@@ -155,8 +155,12 @@ Append one row per attempt. Never edit a past row — the streak history is the 
 `Recall`: `y` = said it out loud, from memory, no notes. Anything else is `n`.
 `Gap`: what you actually could not produce. "Forgot MED tie-break position" is useful; "shaky" is not.
 
+A card enters the log the day its **First due** arrives — not before. Seeding a card early makes `today.ps1` show a question you have not been taught yet; you fail it, it resets to +1d, and it reappears every day until the material lands. Fifty consecutive forced failures teach nothing and make `n` meaningless.
+
+The row below is the seed for CP-02, dated to B29 (Sat 5 Sep) rather than today, because BGP path selection is not covered until B29.
+
 | ID | Asked | Recall | Gap | Next due |
 |---|---|---|---|---|
-| CP-02 | 2026-08-07 | n | Seeded, not yet attempted. Baseline row. | 2026-08-08 |
+| CP-02 | 2026-09-05 | n | Not yet attempted — first attempt due at B29. | 2026-09-05 |
 
 <!-- today.ps1 parses this table. Keep the five columns and the ISO dates. -->
