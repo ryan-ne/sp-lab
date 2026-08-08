@@ -28,6 +28,8 @@ Update the counts as you go. Every ticked box is a commit — the history is the
 
 Start every session with [`tools/today.ps1`](tools/today.ps1) — position, remaining slack, and the checkpoint cards due. Schedule and the deadline maths live in [`docs/schedule.md`](docs/schedule.md); what "done" means for each artifact is in [`docs/artifacts.md`](docs/artifacts.md).
 
+The day list below says *what*. [`days/`](days/) says *how* — sources in reading order, the commands, and the evidence that proves a day is finished. Cards are written **one block ahead**, at the Saturday retro, never further; a lesson plan for D75 written in August is fiction. Getting hired is on a separate clock from learning, and that clock starts long before D100 — see [`docs/market-entry.md`](docs/market-entry.md).
+
 ### Suggested repo layout
 
 ```
@@ -40,9 +42,11 @@ Start every session with [`tools/today.ps1`](tools/today.ps1) — position, rema
 ├── 04-vpn-services/
 ├── 05-edge-security/         ← flagship artifact
 ├── 06-capstone-internet/     ← flagship artifact
+├── days/                     ← per-day lesson plans, one file per block
 ├── tools/                    ← IRR/RPKI filter automation
 └── docs/
     ├── resources.md           ← courses, tooling, RFCs
+    ├── market-entry.md        ← when to start applying, and where
     ├── community-scheme.md
     ├── addressing-plan.md
     ├── peering-policy.md
