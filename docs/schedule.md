@@ -111,7 +111,7 @@ Options, decide by **D60 (Tue 17 Nov)** — not in December:
 2. **Merge four more reading days** in Blocks 5–6 (candidates: D67→D68, D72→D73, D84→D85, D43→D44) to pull everything ~4 days left.
 3. **Accept a January finish for D96–D100.** A7 is the portfolio piece; the CV and applications can run into the first week of January without costing anything real.
 
-Option 3 is the honest one if the run has been rough. A7 finished well on 5 Jan beats A7 rushed on 29 Dec.
+Option 3 is the honest one if the run has been rough. A7 finished well on 5 Jan beats A7 rushed on Christmas Day.
 
 ---
 
@@ -120,10 +120,11 @@ Option 3 is the honest one if the run has been rough. A7 finished well on 5 Jan 
 Cheap, and the only thing that stops a two-day slip becoming a two-week one.
 
 1. `.\tools\today.ps1` — read the slack number out loud.
-2. **What slipped, and why?** Illness, work, or the day was genuinely bigger than a session? The third one is a planning error — record it, the estimate was wrong.
-3. **Checkpoint cards** — anything reset twice? That day was ticked too early. Redo the lab.
-4. **Re-plan.** If slack is negative, fix it this week: bank a Sunday, or merge a reading day and record it below.
-5. Commit the retro to the month's journal file.
+2. **Look ahead one week and put its largest build on the Saturday.** Blocks end in something built, so labs cluster at block boundaries while the 180-minute slot falls wherever the calendar puts it. Left alone they collide — it happened three blocks running in the bridge phase. Reading days have no dependencies and swap freely; move them, not the lab. Log the swap below.
+3. **What slipped, and why?** Illness, work, or the day was genuinely bigger than a session? The third one is a planning error — record it, the estimate was wrong.
+4. **Checkpoint cards** — anything reset twice? That day was ticked too early. Redo the lab.
+5. **Re-plan.** If slack is negative, fix it this week: bank a Sunday, or merge a reading day and record it below.
+6. Commit the retro to the month's journal file.
 
 ### Merge log
 
