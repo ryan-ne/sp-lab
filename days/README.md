@@ -44,8 +44,10 @@ Reading-only days get an extra field: **Cheapest hands-on**. Ten minutes at a te
 | Redistribution and policy | B16–B20 | [`B16-B20.md`](B16-B20.md) |
 | BGP, first half | B21–B28 | [`B21-B28.md`](B21-B28.md) |
 | BGP, second half | B29–B35 | [`B29-B35.md`](B29-B35.md) |
-| IPv6 and Junos onboarding | B36–B40 | not written yet |
+| IPv6 and Junos onboarding | B36–B40 | [`B36-B40.md`](B36-B40.md) |
 | Core plan | D1–D100 | not written yet |
+
+The bridge phase is fully carded. **Write D1–D7 at the B36–B40 retro**, not before — and feed it the B40 look-it-up list, which is the best evidence you will have about what the core plan can safely assume.
 
 ---
 
